@@ -1,11 +1,12 @@
 import java.util.*;
 
+// git test
 class nop_countArray{
   public static void main(String args[]){
-    int C = 32; /*ƒRƒA”*/
-    int N = 256; /*’†ŠÔ‘w‚Ìƒjƒ…[ƒƒ“”*/
-    int k = N/2; /*V‚µ‚¢“ü—Í”*/
-    int d = 2; /*•ªŠ„”*/
+    int C = 32; /*ï¿½Rï¿½Aï¿½ï¿½*/
+    int N = 256; /*ï¿½ï¿½ï¿½Ô‘wï¿½Ìƒjï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+    int k = N/2; /*ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íï¿½*/
+    int d = 2; /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     int clkCycle = 500000;
     String exeInst[][] = new String[C][clkCycle];
 
@@ -16,85 +17,85 @@ class nop_countArray{
     //String in[] = {"IN","IN","IN","IN","IN","IN"};
     //String out[] = {"OUT","OUT","OUT","OUT","OUT"};
 
-    //Še–½—ß‚ÌÀsó‘Ô‚ğŠi”[(0–¢Àsó‘Ô 1Às‰Â”\ó‘Ô‚Ö‚Ì•ÏX 2Às‰Â”\ó‘Ô 3ÀsÏ‚İó‘Ô)
+    //ï¿½eï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½sï¿½ï¿½ï¿½Ô‚ï¿½ï¿½iï¿½[(0ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½ï¿½Ô‚Ö‚Ì•ÏX 2ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½sï¿½Ï‚İï¿½ï¿½ï¿½)
     int Pflag[][] = new int[C][prog.length];
     int Iflag[][] = new int[C][in.length];
     int Oflag[][] = new int[C][out.length];
-    Iflag[0][0] = 2; //ƒRƒA0‚ÌIN_x–½—ß‚Ì‚İÀs‰Â”\ó‘Ô‚É
+    Iflag[0][0] = 2; //ï¿½Rï¿½A0ï¿½ï¿½IN_xï¿½ï¿½ï¿½ß‚Ì‚İï¿½ï¿½sï¿½Â”\ï¿½ï¿½ï¿½Ô‚ï¿½
 
-    int iMid[][] = new int[3][C]; //in,out‰‰Z–½—ß‚ğŠe‚Ç‚±‚Ü‚Å–½—ß‚ğÀs‚µ‚½‚©•Û‘¶‚µ‚Ä‚¨‚­”z—ñ
-    int didOpeflag[] = new int[C]; //Às‚³‚ê‚½–½—ß‚ª‚ ‚Á‚½‚©(NOP”»’è‚Ég—p)
-    int comflag = 0; //’ÊM’†‚Í1‚É•ÏX
-    int ret = 0; //judgeƒƒ\ƒbƒh‚Ì–ß‚è’l(Às‰Â”\‚È–½—ß‚Ì’Ê‚µ”Ô†)‚ğ•Û‘¶
+    int iMid[][] = new int[3][C]; //in,outï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ß‚ï¿½ï¿½eï¿½Ç‚ï¿½ï¿½Ü‚Å–ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
+    int didOpeflag[] = new int[C]; //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(NOPï¿½ï¿½ï¿½ï¿½ï¿½Égï¿½p)
+    int comflag = 0; //ï¿½ÊMï¿½ï¿½ï¿½ï¿½1ï¿½É•ÏX
+    int ret = 0; //judgeï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½Ì–ß‚ï¿½ï¿½l(ï¿½ï¿½ï¿½sï¿½Â”\ï¿½È–ï¿½ï¿½ß‚Ì’Ê‚ï¿½ï¿½Ôï¿½)ï¿½ï¿½ï¿½Û‘ï¿½
 
     long prog_count[] = {N*(N+k)/C, N*(N+k)/C, N*(N+k)/C, N*(N+k)/C,
-      N/C, N/C, N/C, N/C, N/C};//‰‰Z–½—ß‚ÌÀs‰ñ”‚ğŠi”[‚µ‚½”z—ñ
-    long in_count[] = {N/C, N/C, N/C, N/C, N/C, N/C};//IN–½—ß‚ÌÀs‰ñ”‚ğŠi”[‚µ‚½”z—ñ
-    long out_count[] = {N/C, N/C, N/C, N/C, N/C};//IN–½—ß‚ÌÀs‰ñ”‚ğŠi”[‚µ‚½”z—ñ
+      N/C, N/C, N/C, N/C, N/C};//ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
+    long in_count[] = {N/C, N/C, N/C, N/C, N/C, N/C};//INï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
+    long out_count[] = {N/C, N/C, N/C, N/C, N/C};//INï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
 
-    int timeStep = 0; //Às‚µ‚½ƒ^ƒCƒ€ƒXƒeƒbƒv”‚ğƒJƒEƒ“ƒg
-    int nopCount = 0; //nop”‚ÌƒJƒEƒ“ƒg
-    double kadouritu = 0; //‰Ò“­—¦
+    int timeStep = 0; //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Xï¿½eï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g
+    int nopCount = 0; //nopï¿½ï¿½ï¿½ÌƒJï¿½Eï¿½ï¿½ï¿½g
+    double kadouritu = 0; //ï¿½Ò“ï¿½ï¿½ï¿½
 
 
 
-    //ÀsŠJn
+    //ï¿½ï¿½ï¿½sï¿½Jï¿½n
     for(int i=0; i<clkCycle; i++){
-      comflag = 0; //‰Šú‰»
+      comflag = 0; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-      //ŠeƒRƒA‚Å‚Ìˆ—ŠJn
+      //ï¿½eï¿½Rï¿½Aï¿½Å‚Ìï¿½ï¿½ï¿½ï¿½Jï¿½n
       for(int doCore = 0; doCore < C; doCore++ ){
-        ret = judge(doCore, Iflag); //Às‰Â”\‚ÈIN–½—ß‚ª‚ ‚ê‚Î‚»‚ÌIN–½—ß‚Ì”Ô†‚ğ•Ô‚·
+        ret = judge(doCore, Iflag); //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½INï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î‚ï¿½ï¿½ï¿½INï¿½ï¿½ï¿½ß‚Ì”Ôï¿½ï¿½ï¿½ï¿½Ô‚ï¿½
         if(ret >= 0 && comflag == 0){
-          //Às‰Â”\‚ÈIN–½—ß‚ª‚ ‚é
+          //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½INï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
           comflag = 1;
           exeInst[doCore][i] = in[ret];
-          didOpeflag[doCore] = 1; //–½—ß‚ğÀs‚µ‚½‚Ì‚Åƒtƒ‰ƒO‚ğ‚P‚É•ÏX
-          iMid[0][doCore]++; //Às‰ñ”‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+          didOpeflag[doCore] = 1; //ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Pï¿½É•ÏX
+          iMid[0][doCore]++; //ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g
           if(in_count[ret] == iMid[0][doCore]){
-            //‹K’è‚ÌÀs‰ñ”‚É“’B
-            Iflag[doCore][ret] = 3; //I‚í‚Á‚½–½—ß‚Ìó‘Ôƒtƒ‰ƒO‚ğ3(ÀsÏ‚İ)‚É•ÏX
-            iMid[0][doCore] = 0; //Às‰ñ”‚ğ‚O‚É–ß‚·
+            //ï¿½Kï¿½ï¿½ï¿½Ìï¿½ï¿½sï¿½ñ”‚É“ï¿½ï¿½B
+            Iflag[doCore][ret] = 3; //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½ï¿½3(ï¿½ï¿½ï¿½sï¿½Ï‚ï¿½)ï¿½É•ÏX
+            iMid[0][doCore] = 0; //ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Oï¿½É–ß‚ï¿½
 
-            //I—¹‚µ‚½–½—ß,ƒRƒA”Ô†‚É‚æ‚Á‚Äó‘Ôƒtƒ‰ƒO‚Ì•ÏX‚ğs‚¤
+            //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Rï¿½Aï¿½Ôï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½Ì•ÏXï¿½ï¿½ï¿½sï¿½ï¿½
             Iflag = cIFlag(C, d, doCore, 0, ret, Iflag);
             Oflag = cOFlag(C, d, doCore, 0, ret, Oflag);
             Pflag = cPFlag(C, d, doCore, 0, ret, Pflag);
           }
         }else{
-          ret = judge(doCore, Oflag); //Às‰Â”\‚ÈIN–½—ß‚ª‚ ‚ê‚Î‚»‚ÌIN–½—ß‚Ì”Ô†‚ğ•Ô‚·
+          ret = judge(doCore, Oflag); //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½INï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î‚ï¿½ï¿½ï¿½INï¿½ï¿½ï¿½ß‚Ì”Ôï¿½ï¿½ï¿½ï¿½Ô‚ï¿½
           if(ret >= 0 && comflag == 0){
-            //Às‰Â”\‚ÈOUT–½—ß‚ª‚ ‚é
+            //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½OUTï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
             comflag = 1;
             exeInst[doCore][i] = out[ret];
-            didOpeflag[doCore] = 1; //–½—ß‚ğÀs‚µ‚½‚Ì‚Åƒtƒ‰ƒO‚ğ‚P‚É•ÏX
-            iMid[1][doCore]++; //Às‰ñ”‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+            didOpeflag[doCore] = 1; //ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Pï¿½É•ÏX
+            iMid[1][doCore]++; //ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g
             if(out_count[ret] == iMid[1][doCore]){
-              //‹K’è‚ÌÀs‰ñ”‚É“’B
-              if(ret == 4 && doCore == C-1){//ƒRƒA”Ô†Å‘å‚ÌƒRƒA‚ÅOUT_h–½—ß‚ªI—¹
-                timeStep++;//ƒ^ƒCƒ€ƒXƒeƒbƒvƒJƒEƒ“ƒg‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+              //ï¿½Kï¿½ï¿½ï¿½Ìï¿½ï¿½sï¿½ñ”‚É“ï¿½ï¿½B
+              if(ret == 4 && doCore == C-1){//ï¿½Rï¿½Aï¿½Ôï¿½ï¿½Å‘ï¿½ï¿½ÌƒRï¿½Aï¿½ï¿½OUT_hï¿½ï¿½ï¿½ß‚ï¿½ï¿½Iï¿½ï¿½
+                timeStep++;//ï¿½^ï¿½Cï¿½ï¿½ï¿½Xï¿½eï¿½bï¿½vï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g
               }
-              Oflag[doCore][ret] = 3; //I‚í‚Á‚½–½—ß‚Ìó‘Ôƒtƒ‰ƒO‚ğ3(ÀsÏ‚İ)‚É•ÏX
-              iMid[1][doCore] = 0; //Às‰ñ”‚ğ‚O‚É–ß‚·
+              Oflag[doCore][ret] = 3; //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½ï¿½3(ï¿½ï¿½ï¿½sï¿½Ï‚ï¿½)ï¿½É•ÏX
+              iMid[1][doCore] = 0; //ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Oï¿½É–ß‚ï¿½
 
-              //I—¹‚µ‚½–½—ß,ƒRƒA”Ô†‚É‚æ‚Á‚Äó‘Ôƒtƒ‰ƒO‚Ì•ÏX‚ğs‚¤
+              //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Rï¿½Aï¿½Ôï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½Ì•ÏXï¿½ï¿½ï¿½sï¿½ï¿½
               Iflag = cIFlag(C, d, doCore, 1, ret, Iflag);
               Oflag = cOFlag(C, d, doCore, 1, ret, Oflag);
               Pflag = cPFlag(C, d, doCore, 1, ret, Pflag);
             }
           }else{
-            ret = judge(doCore, Pflag); //Às‰Â”\‚È‰‰Z–½—ß‚ª‚ ‚ê‚Î‚»‚ÌIN–½—ß‚Ì”Ô†‚ğ•Ô‚·
+            ret = judge(doCore, Pflag); //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½È‰ï¿½ï¿½Zï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î‚ï¿½ï¿½ï¿½INï¿½ï¿½ï¿½ß‚Ì”Ôï¿½ï¿½ï¿½ï¿½Ô‚ï¿½
             if(ret >= 0){
-              //Às‰Â”\‚È‰‰Z–½—ß‚ª‚ ‚é
+              //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½È‰ï¿½ï¿½Zï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
               exeInst[doCore][i] = prog[ret];
-              didOpeflag[doCore] = 1; //–½—ß‚ğÀs‚µ‚½‚Ì‚Åƒtƒ‰ƒO‚ğ‚P‚É•ÏX
-              iMid[2][doCore]++; //Às‰ñ”‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+              didOpeflag[doCore] = 1; //ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Pï¿½É•ÏX
+              iMid[2][doCore]++; //ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g
               if(prog_count[ret] == iMid[2][doCore]){
-                //‹K’è‚ÌÀs‰ñ”‚É“’B
-                Pflag[doCore][ret] = 3; //I‚í‚Á‚½–½—ß‚Ìó‘Ôƒtƒ‰ƒO‚ğ3(ÀsÏ‚İ)‚É•ÏX
-                iMid[2][doCore] = 0;//Às‰ñ”‚ğ‚O‚É–ß‚·
+                //ï¿½Kï¿½ï¿½ï¿½Ìï¿½ï¿½sï¿½ñ”‚É“ï¿½ï¿½B
+                Pflag[doCore][ret] = 3; //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚Ìï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½ï¿½3(ï¿½ï¿½ï¿½sï¿½Ï‚ï¿½)ï¿½É•ÏX
+                iMid[2][doCore] = 0;//ï¿½ï¿½ï¿½sï¿½ñ”‚ï¿½ï¿½Oï¿½É–ß‚ï¿½
 
-                //I—¹‚µ‚½–½—ß,ƒRƒA”Ô†‚É‚æ‚Á‚Äó‘Ôƒtƒ‰ƒO‚Ì•ÏX‚ğs‚¤
+                //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Rï¿½Aï¿½Ôï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½Ì•ÏXï¿½ï¿½ï¿½sï¿½ï¿½
                 Iflag = cIFlag(C, d, doCore, 2, ret, Iflag);
                 Oflag = cOFlag(C, d, doCore, 2, ret, Oflag);
                 Pflag = cPFlag(C, d, doCore, 2, ret, Pflag);
@@ -105,7 +106,7 @@ class nop_countArray{
       }
 
 
-      //Às‚µ‚½–½—ß‚ª–³‚¯‚ê‚Înop‚ğ”z—ñ‚ÉŠi”[
+      //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nopï¿½ï¿½ï¿½zï¿½ï¿½ï¿½ÉŠiï¿½[
       for(int n = 0; n<C; n++){
         if(didOpeflag[n] == 0){
           exeInst[n][i] = "nop";
@@ -114,20 +115,20 @@ class nop_countArray{
         else didOpeflag[n] = 0;
       }
 
-      //Àsó‘Ô‚Ìó‘Ô1‚ğÀs‰Â”\ó‘Ô(ó‘Ô2‚É•ÏX)
+      //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ô‚Ìï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½2ï¿½É•ÏX)
       Pflag = changExe(C,Pflag);
       Iflag = changExe(C,Iflag);
       Oflag = changExe(C,Oflag);
 
     }
-    //‰Ò“­—¦‚ÌŒvZ‚ğs‚¤
+    //ï¿½Ò“ï¿½ï¿½ï¿½ï¿½ÌŒvï¿½Zï¿½ï¿½ï¿½sï¿½ï¿½
     kadouritu = kadouritu(C, nopCount, timeStep, prog_count, in_count, out_count);
 
-    //Às‚µ‚½–½—ß‚ğ•\¦
+    //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½\ï¿½ï¿½
     //print(C, exeInst);
 
-    //Œ‹‰Ê‚Ì•\¦String.format("%5d",n+1)
-    System.out.println("\n\n"+"ƒRƒA”C: "+C+" ’†ŠÔ‘w‚Ìƒjƒ…[ƒƒ“”N: "+N+" •ªŠ„”: "+d+" ‚Ìê‡");
+    //ï¿½ï¿½ï¿½Ê‚Ì•\ï¿½ï¿½String.format("%5d",n+1)
+    System.out.println("\n\n"+"ï¿½Rï¿½Aï¿½ï¿½C: "+C+" ï¿½ï¿½ï¿½Ô‘wï¿½Ìƒjï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½N: "+N+" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: "+d+" ï¿½Ìê‡");
 
     System.out.print(N);
     System.out.print(" "+k);
@@ -135,12 +136,12 @@ class nop_countArray{
     System.out.print(" "+nopCount);
     System.out.print(" "+kadouritu*100);
 
-    //System.out.println("nop–½—ßÀs”‚Í "+ nopCount);
-    //System.out.println("LSTM‚ğ "+timeStep+" ƒ^ƒCƒ€ƒXƒeƒbƒvÀs");
-    //System.out.println("•½‹Ï‰Ò“­—¦‚Í "+kadouritu*100+" %");
+    //System.out.println("nopï¿½ï¿½ï¿½ßï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ "+ nopCount);
+    //System.out.println("LSTMï¿½ï¿½ "+timeStep+" ï¿½^ï¿½Cï¿½ï¿½ï¿½Xï¿½eï¿½bï¿½vï¿½ï¿½ï¿½s");
+    //System.out.println("ï¿½ï¿½ï¿½Ï‰Ò“ï¿½ï¿½ï¿½ï¿½ï¿½ "+kadouritu*100+" %");
   }
 
-  //Às–½—ß”z—ñ‚É•Û‘¶‚³‚ê‚½–½—ß‚Ì‘S•\¦
+  //ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ß”zï¿½ï¿½ï¿½É•Û‘ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ß‚Ì‘Sï¿½\ï¿½ï¿½
   public static void print(int C, String[][] exeInst){
     for(int x = 0; x < C; x++){
       System.out.println("core" +x);
@@ -151,7 +152,7 @@ class nop_countArray{
   }
 
 
-  //Às‰Â”\‚È–½—ß‚ª‚ ‚é‚©”»’è‚µ‚ ‚ê‚Î‚»‚Ì–½—ß‚Ì‰“‚µ”Ô†‚ğ–ß‚è’l‚Æ‚µ‚Ä•Ô‚·
+  //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½È–ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½é‚©ï¿½ï¿½ï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Î‚ï¿½ï¿½Ì–ï¿½ï¿½ß‚Ì‰ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½lï¿½Æ‚ï¿½ï¿½Ä•Ô‚ï¿½
   public static int judge(int C, int[][] flag){
     int ret = -1;
     for(int i = 0; i<flag[C].length;i++){
@@ -163,7 +164,7 @@ class nop_countArray{
     return ret;
   }
 
-  //Às‰Â”\ó‘Ô‚É•ÏX‰Â”\‚Èó‘Ôƒtƒ‰ƒO‚Ì•ÏX‚·‚éƒƒ\ƒbƒh
+  //ï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½ï¿½Ô‚É•ÏXï¿½Â”\ï¿½Èï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½Ì•ÏXï¿½ï¿½ï¿½éƒï¿½\ï¿½bï¿½h
   public static int[][] changExe(int C, int[][] flagarray){
     for(int i = 0; i<flagarray.length; i++){
       for(int j = 0; j<flagarray[0].length; j++){
@@ -175,10 +176,10 @@ class nop_countArray{
     return flagarray;
   }
 
-  //‰Ò“­—¦‚ÌZo
+  //ï¿½Ò“ï¿½ï¿½ï¿½ï¿½ÌZï¿½o
   public static double kadouritu(int C, int nop,  int timeStep, long[] prog, long[] in, long[] out){
     double kadouritu = 0;
-    double sum = 0; //1ƒ^ƒCƒ€ƒXƒeƒbƒv‚ÉÀs‚·‚é–½—ß”(prog_count,in_count,out_count”z—ñ‚ÌŠe—v‘f‚Ì‡Œv)
+    double sum = 0; //1ï¿½^ï¿½Cï¿½ï¿½ï¿½Xï¿½eï¿½bï¿½vï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½é–½ï¿½ßï¿½(prog_count,in_count,out_countï¿½zï¿½ï¿½ï¿½ÌŠeï¿½vï¿½fï¿½Ìï¿½ï¿½v)
     for(int i = 0; i<prog.length;i++){
       sum += prog[i];
     }
@@ -197,56 +198,56 @@ class nop_countArray{
     return kadouritu;
   }
 
-  //‰‰Z–½—ßó‘Ôƒtƒ‰ƒO‚Ì•ÏX
+  //ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ßï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½Ì•ÏX
   public static int[][] cPFlag(int cMax, int d, int core, int finOpeType, int finOpeNum, int[][] array){
     int Threshold = cMax/d;
-    if(finOpeType == 0){ //IN–½—ß
-      if(finOpeNum == 0){ //IN_x‚ÌI—¹
-        array[core][0] = 1; //PSM_iÀs‰Â‚É
-        array[core][1] = 1; //PSM_sÀs‰Â‚É
-        array[core][2] = 1; //PSM_fÀs‰Â‚É
-        array[core][3] = 1; //PSM_oÀs‰Â‚É
+    if(finOpeType == 0){ //INï¿½ï¿½ï¿½ï¿½
+      if(finOpeNum == 0){ //IN_xï¿½ÌIï¿½ï¿½
+        array[core][0] = 1; //PSM_iï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+        array[core][1] = 1; //PSM_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+        array[core][2] = 1; //PSM_fï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+        array[core][3] = 1; //PSM_oï¿½ï¿½ï¿½sï¿½Â‚ï¿½
       }
-      else if(finOpeNum == 2) array[core][4]=1; //INADD_s‚ÌI—¹=>MULv_i_sÀs‰Â‚É
+      else if(finOpeNum == 2) array[core][4]=1; //INADD_sï¿½ÌIï¿½ï¿½=>MULv_i_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
     }
     else if(finOpeType ==2){
-      if(finOpeNum == 2) array[core][5]=1; //PSM_f‚ÌI—¹=>MULv_f_sBÀs‰Â‚É
-      if(finOpeNum == 5) array[core][6]=1; //MULv_f_sB‚ÌI—¹=>ADDv_f_sDÀs‰Â‚É
-      if(finOpeNum == 6) array[core][7]=1; //ADDv_f_sD‚ÌI—¹=>TANHv_sÀs‰Â‚É
-      if(finOpeNum == 7) array[core][8]=1; //TANHv_s‚ÌI—¹=MULv_sD_oÀs‰Â‚É
+      if(finOpeNum == 2) array[core][5]=1; //PSM_fï¿½ÌIï¿½ï¿½=>MULv_f_sBï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      if(finOpeNum == 5) array[core][6]=1; //MULv_f_sBï¿½ÌIï¿½ï¿½=>ADDv_f_sDï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      if(finOpeNum == 6) array[core][7]=1; //ADDv_f_sDï¿½ÌIï¿½ï¿½=>TANHv_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      if(finOpeNum == 7) array[core][8]=1; //TANHv_sï¿½ÌIï¿½ï¿½=MULv_sD_oï¿½ï¿½ï¿½sï¿½Â‚ï¿½
     }
     return array;
   }
 
-  //OUT–½—ßó‘Ôƒtƒ‰ƒO•ÏX
+  //OUTï¿½ï¿½ï¿½ßï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½ÏX
   public static int[][] cOFlag(int cMax, int d, int core, int finOpeType, int finOpeNum, int[][] array){
     int Threshold = cMax/d;
-    if(finOpeType == 2){ //‰‰Z–½—ß
-      if(finOpeNum == 0) array[core][0] = 1; //PSM_i‚ÌI—¹=>OUT_iÀs‰Â‚É
-      else if(finOpeNum == 1) array[core][1] = 1; //PSM_s‚ÌI—¹=>OUT_sÀs‰Â‚É
-      else if(finOpeNum == 2) array[core][2] = 1; //PSM_f‚ÌI—¹=>OUT_fÀs‰Â‚É
-      else if(finOpeNum == 3) array[core][3] = 1; //PSM_o‚ÌI—¹=>OUT_oÀs‰Â‚É
-      else if(finOpeNum == 8) array[core][4] = 1; //MULv_sD_o‚ÌI—¹=>OUT_hÀs‰Â‚É
+    if(finOpeType == 2){ //ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
+      if(finOpeNum == 0) array[core][0] = 1; //PSM_iï¿½ÌIï¿½ï¿½=>OUT_iï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 1) array[core][1] = 1; //PSM_sï¿½ÌIï¿½ï¿½=>OUT_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 2) array[core][2] = 1; //PSM_fï¿½ÌIï¿½ï¿½=>OUT_fï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 3) array[core][3] = 1; //PSM_oï¿½ÌIï¿½ï¿½=>OUT_oï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 8) array[core][4] = 1; //MULv_sD_oï¿½ÌIï¿½ï¿½=>OUT_hï¿½ï¿½ï¿½sï¿½Â‚ï¿½
     }
     return array;
   }
 
-  //IN–½—ßó‘Ôƒtƒ‰ƒO•ÏX
+  //INï¿½ï¿½ï¿½ßï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½ÏX
   public static int[][] cIFlag(int cMax, int d, int core, int finOpeType, int finOpeNum, int[][] array){
     int Threshold = cMax/d;
-    if(finOpeType == 0 && finOpeNum ==0){ //IN_x–½—ß‚ÌI—¹
-      if(core < Threshold) array[core+Threshold][0] = 1; //IN_‚˜‚ÌI—¹=>‘ŠèƒRƒA‚ÌIN_xÀs‰Â‚É
-      else if(core >= Threshold && core != cMax-1)array[core-Threshold+1][0] = 1; //IN_‚˜‚ÌI—¹=>‘ŠèƒRƒA‚ÌIN_xÀs‰Â‚É
+    if(finOpeType == 0 && finOpeNum ==0){ //IN_xï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½
+      if(core < Threshold) array[core+Threshold][0] = 1; //IN_ï¿½ï¿½ï¿½ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½IN_xï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(core >= Threshold && core != cMax-1)array[core-Threshold+1][0] = 1; //IN_ï¿½ï¿½ï¿½ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½IN_xï¿½ï¿½ï¿½sï¿½Â‚ï¿½
     }
-    else if(finOpeType == 1){ //OUT–½—ß‚ÌI—¹
-      if(finOpeNum == 0 && core < Threshold) array[core+Threshold][1] = 1; //OUT_i–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_iÀs‰Â‚É
-      else if(finOpeNum == 0 && core >= Threshold) array[core-Threshold][1] = 1; //OUT_i–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_iÀs‰Â‚É
-      else if(finOpeNum == 1 && core < Threshold) array[core+Threshold][2] = 1; //OUT_s–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_sÀs‰Â‚É
-      else if(finOpeNum == 1 && core >= Threshold) array[core-Threshold][2] = 1; //OUT_s–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_sÀs‰Â‚É
-      else if(finOpeNum == 2 && core < Threshold) array[core+Threshold][3] = 1; //OUT_f–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_fÀs‰Â‚É
-      else if(finOpeNum == 2 && core >= Threshold) array[core-Threshold][3] = 1; //OUT_f–½—ß‚ÌI—¹=>‘ŠèƒRƒA‚ÌINADD_fÀs‰Â‚É
+    else if(finOpeType == 1){ //OUTï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½
+      if(finOpeNum == 0 && core < Threshold) array[core+Threshold][1] = 1; //OUT_iï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_iï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 0 && core >= Threshold) array[core-Threshold][1] = 1; //OUT_iï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_iï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 1 && core < Threshold) array[core+Threshold][2] = 1; //OUT_sï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 1 && core >= Threshold) array[core-Threshold][2] = 1; //OUT_sï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_sï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 2 && core < Threshold) array[core+Threshold][3] = 1; //OUT_fï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_fï¿½ï¿½ï¿½sï¿½Â‚ï¿½
+      else if(finOpeNum == 2 && core >= Threshold) array[core-Threshold][3] = 1; //OUT_fï¿½ï¿½ï¿½ß‚ÌIï¿½ï¿½=>ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Aï¿½ï¿½INADD_fï¿½ï¿½ï¿½sï¿½Â‚ï¿½
     }
-    if(finOpeType == 1 && finOpeNum == 4 && core == 2) array[0][0] = 1;//core2‚ÌOUT–½—ß‚ªI—¹=>core0‚ÌIN_xÀs‰Â”\‚É
+    if(finOpeType == 1 && finOpeNum == 4 && core == 2) array[0][0] = 1;//core2ï¿½ï¿½OUTï¿½ï¿½ï¿½ß‚ï¿½ï¿½Iï¿½ï¿½=>core0ï¿½ï¿½IN_xï¿½ï¿½ï¿½sï¿½Â”\ï¿½ï¿½
     return array;
   }
 }
